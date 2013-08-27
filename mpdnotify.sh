@@ -25,8 +25,12 @@ do
 			(( i++ ))
 		done <<< "$output"
 
-		icon=$(ls -t "$(dirname "$dir${array[4]}")"/*.{jpg,png} 2> /dev/null | head -n 1)
+		array[1]=$(echo "${array[1]}" | sed s/\&/\&amp\;/)
+		array[2]=$(echo "${array[2]}" | sed s/\&/\&amp\;/)
+		array[3]=$(echo "${array[3]}" | sed s/\&/\&amp\;/)
 
-		notify-send "${array[1]}" "${array[2]} - ${array[3]}" -t 5000 -i "$icon"
+		file=$(ls -t "$(dirname "$dir${array[4]}")"/*.{jpg,png} 2> /dev/null | head -n 1)
+
+		notify-send "${array[1]}" "${array[2]} - ${array[3]}" -t 5000 -i "$file"
 	fi
 done
