@@ -34,3 +34,4 @@ do
 		notify-send "${array[1]}" "${array[2]} - ${array[3]}" -t 5000 -i "$file"
 	fi
 done
+
